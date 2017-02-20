@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Raycasting implementation to allow the Samsung Gear VR to interact with the 3D menu buttons with only the center input
 public class RayCaster : MonoBehaviour {
     
-    // Version in which you play in Gear VR
+    // Version in which you play in Gear VR (input)
     // Update is called once per frame
     void Update () {
         GameObject modcub = GameObject.Find("ModeCube");
         GameObject remcub = GameObject.Find("RemainderCube");
         GameObject diagcub = GameObject.Find("DiagCube");
-        Ray raycastRay = new Ray(transform.position, transform.forward);
-        RaycastHit hitInfo;
+
+        Ray raycastRay = new Ray(transform.position, transform.forward); //shoot a ray from where you are in the direction of a Vector3 vector
+        RaycastHit hitInfo; //the object in which the ray has hit
         if (Physics.Raycast(raycastRay, out hitInfo, Mathf.Infinity))
         {
             if (hitInfo.collider.gameObject.name == "ModeCube")

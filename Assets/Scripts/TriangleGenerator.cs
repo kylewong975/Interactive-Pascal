@@ -2,26 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Generates Pascal's triangle numbers using cubes and 3D text
 public class TriangleGenerator : MonoBehaviour
 {
     public GameObject prefab;
     public int rows;
-    public static List<List<GameObject>> obj = new List<List<GameObject>>();
-    public static List<List<int>> triangle = new List<List<int>>();
+    public static List<List<GameObject>> obj = new List<List<GameObject>>(); //2D list of game objects to reference the constituent cubes
+    public static List<List<int>> triangle = new List<List<int>>(); //2D list of integers for computational purposes
+
     // Use this for initialization
     void Start()
     {
         GameObject obj_template = prefab; //the template GameObject used for initializing obj_tmp
         GameObject obj_tmp; // used for adding initialized cubes to obj (list of cubes)
 
-        //base case 1
+        //base case 1 (row 1)
         triangle.Add(new List<int> { 1 });
         obj_template.GetComponentInChildren<TextMesh>().text = "1";
         obj_tmp = Instantiate(obj_template, new Vector3(0, 0, 0), Quaternion.identity);
         List<GameObject> templist = new List<GameObject> { obj_tmp };
         obj.Add(templist);
 
-        //base case 1 1
+        //base case 1 1 (row 2)
         triangle.Add(new List<int> { 1, 1 });
         List<GameObject> templist3 = new List<GameObject>();
         obj_tmp = Instantiate(obj_template, new Vector3(-0.5f, -1, 0), Quaternion.identity);
@@ -40,11 +42,15 @@ public class TriangleGenerator : MonoBehaviour
             float tmpX = x;
             List<int> upper = triangle[i - 1];
             List<int> temp = new List<int>();
-            temp.Add(1);
+
+            //Notice each row has 1's as first and last elements
+            temp.Add(1); //first element
             obj_template.GetComponentInChildren<TextMesh>().text = "1";
             obj_tmp = Instantiate(obj_template, new Vector3(tmpX, y, 0), Quaternion.identity);
             templist2.Add(obj_tmp);
             tmpX++;
+
+            //Consecutive sums from previous row [2, n-1] elements
             for (int j = 1; j < i; j++)
             {
                 int k;
@@ -55,7 +61,8 @@ public class TriangleGenerator : MonoBehaviour
                 templist2.Add(obj_tmp);
                 tmpX++;
             }
-            temp.Add(1);
+
+            temp.Add(1); //kast element
             obj_template.GetComponentInChildren<TextMesh>().text = "1";
             obj_tmp = Instantiate(obj_template, new Vector3(tmpX, y, 0), Quaternion.identity);
             templist2.Add(obj_tmp);

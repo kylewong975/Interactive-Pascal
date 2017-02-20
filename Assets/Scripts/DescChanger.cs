@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DescChanger : MonoBehaviour {
 
-    private string desc;
-    private string desc1;
+    private string desc; //dynamic description based on the highlighted mathematical property
+    private string desc1; //default description
 
 	// Use this for initialization
 	void Start () {
