@@ -17,7 +17,7 @@ public class CameraRotate : MonoBehaviour {
 	void Update () {
         float rotX = h * Input.GetAxis("Horizontal");
         float rotY = v * Input.GetAxis("Vertical");
-        transform.Rotate(rotY, rotX, 0);
+        transform.Rotate(-rotY, rotX, 0);
 
         if (Input.GetKeyDown("z"))
         {
