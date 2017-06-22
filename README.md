@@ -18,14 +18,17 @@ CreateColor attached to colors
 DescChanger attached to DescText
 TriangleGenerator attached to Triangle, with how ever many rows you want, and the Cube (from the Prefabs folder) as the Prefab. 
 
-2. Use the following keys, with the following functionalities: 
-**On a computer**
-'r' key to change remainder
-'t' key to change the modulus
-'y' key to switch between diagonals
-WASD or arrow keys (up, left, down, right) to rotate the camera up, left, down, right, respectively
-'z' key to zoom in
-'x' key to zoom out
+2. Use the following keys, with the following functionalities:
 
-**On Samsung Gear VR**
-Just tap the button on the side of the VR to confirm a selection. Rotate the gear to rotate the camera. Look directly at one of the buttons (the buttons should slightly pop up), tap to "press" that button!
+    **On a computer**
+
+* `r` key to change remainder
+* `t` key to change the modulus
+* `y` key to switch between diagonals
+* `WASD or arrow keys (up, left, down, right)` to rotate the camera up, left, down, right, respectively
+* `z` key to zoom in
+* `x` key to zoom out
+
+  **On Samsung Gear VR**
+
+* Just tap the button on the side of the VR to confirm a selection. Rotate the gear to rotate the camera. Look directly at one of the buttons (the buttons should slightly pop up), tap to "press" that button!
